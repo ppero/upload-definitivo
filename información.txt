@@ -1,4 +1,4 @@
-✅AUTOPROGRAMACION✅
+INFORMACIÓN
 ____________(✪)_____________
 📦Versión 1.3.7 Release (2022/6/23)
 
@@ -10,3 +10,4 @@ ____________(✪)_____________
 /eduvirtual
 /ismm
 /uvs
+/evea

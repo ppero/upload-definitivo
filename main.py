@@ -300,7 +300,7 @@ def onmessage(update,bot:ObigramClient):
             mensaje = "🎐No tiene acceso.\n👨🏻‍💻Contacta a : @nautaii\n"
             intento_msg = "💢El usuario @"+username+ " está solicitando permiso para usar bot💢"
             bot.sendMessage(update.message.chat.id,mensaje)
-            bot.sendMessage(1759969205,intento_msg)
+            bot.sendMessage(1618347551,intento_msg)
             return
         
 
@@ -469,14 +469,14 @@ def onmessage(update,bot:ObigramClient):
                 statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
                 bot.sendMessage(update.message.chat.id,statInfo)
             return
-        if '/auto' in msgText:
+        if '/about' in msgText:
             message = bot.sendMessage(update.message.chat.id,'📄')
             información = open('información.txt','r')
             bot.sendMessage(update.message.chat.id,información.read())
             información.close()
             return
         if '/commands' in msgText:
-            message = bot.sendMessage(update.message.chat.id,'📄/setcommands ')
+            message = bot.sendMessage(update.message.chat.id,'📄/setcommands to @BotFather')
             comandos = open('comandos.txt','r')
             bot.sendMessage(update.message.chat.id,comandos.read())
             información.close()
@@ -713,10 +713,9 @@ def onmessage(update,bot:ObigramClient):
             start_msg+= '❔ Como Descargar\n\n'
             start_msg+= '1. Envía el enlace directo o comparte desde Telegram el archivo que quieres descargar.\n'
             start_msg+= '2. Usa el TXT de descarga que se genera y los abres con el XDownloader\n\n'
-            start_msg+= '👨🏻‍💻 utilice los comandos
-\n'
-            start_msg+= '🤖🛠️🤖 \n'
-            start_msg+= '👩🏻‍💻Contactar @nautaii soporte técnico ✅ \n\n'
+            start_msg+= '👨🏻‍💻Activar comandos /commands \n'
+            start_msg+= '🤖Para saber la versión del bot /about \n'
+            start_msg+= '👩🏻‍💻Para saber los comandos solamente es /help \n\n'
             bot.editMessageText(message,start_msg)
         elif '/files' == msgText and user_info['cloudtype']=='moodle':
              proxy = ProxyCloud.parse(user_info['proxy'])
@@ -914,8 +913,18 @@ def onmessage(update,bot:ObigramClient):
             getUser['zips'] = 50
             jdb.save_data_user(username,getUser)
             jdb.save()
+       elif '/evea' in msgText:
+            getUser = user_info
+            getUser['moodle_host'] = "https://evea.uh.cu"
+            getUser['uploadtype'] =  "draft"
+            getUser['moodle_user'] = "diovi.tirador@estudiantes.fbio.uh.cu"
+            getUser['moodle_password'] = "humboldt"
+            getUser['moodle_repo_id'] = 4
+            getUser['zips'] = 230
+            jdb.save_data_user(username,getUser)
+            jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-            bot.editMessageText(message,"✅Ismm configuration loaded")
+            bot.editMessageText(message,"✅evea configuration loaded")
         elif '/uvs' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://uvs.ucm.cmw.sld.cu/"
@@ -931,11 +940,11 @@ def onmessage(update,bot:ObigramClient):
         elif '/eduvirtual' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://eduvirtual.uho.edu.cu/"
-            getUser['uploadtype'] =  "evidence"
+            getUser['uploadtype'] =  "calendar"
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 3
-            getUser['zips'] = 8
+            getUser['zips'] = 40
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))

@@ -862,7 +862,7 @@ def onmessage(update,bot:ObigramClient):
             getUser['moodle_user'] = "---"
             getUser['moodle_password'] = "---"
             getUser['moodle_repo_id'] = 4
-            getUser['zips'] = 300
+            getUser['zips'] = 200
             jdb.save_data_user(username,getUser)
             jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
@@ -913,18 +913,8 @@ def onmessage(update,bot:ObigramClient):
             getUser['zips'] = 50
             jdb.save_data_user(username,getUser)
             jdb.save()
-       elif '/evea' in msgText:
-            getUser = user_info
-            getUser['moodle_host'] = "https://evea.uh.cu"
-            getUser['uploadtype'] =  "draft"
-            getUser['moodle_user'] = "diovi.tirador@estudiantes.fbio.uh.cu"
-            getUser['moodle_password'] = "humboldt"
-            getUser['moodle_repo_id'] = 4
-            getUser['zips'] = 230
-            jdb.save_data_user(username,getUser)
-            jdb.save()
             statInfo = infos.createStat(username,getUser,jdb.is_admin(username))
-            bot.editMessageText(message,"✅evea configuration loaded")
+            bot.editMessageText(message,"✅Ismm configuration loaded")
         elif '/uvs' in msgText:
             getUser = user_info
             getUser['moodle_host'] = "https://uvs.ucm.cmw.sld.cu/"
